@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOTIZEN</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="VUE.css">
+</head>
+<body>
+    <h1>NOTIZEN</h1>
+    <div id="app">
+        <form id="Eingabefeld" @submit.prevent="onClick">
+            <button id="allesLoeschen" @click="deleteEverything">X</button>
+            <input id="Ueberschrift" type="text" v-model="Ueberschrift" name="Ueberschrift" placeholder="Überschrift">
+            <input id="Notizen" type="text" v-model="Liste" name="Liste" placeholder="Notiz">
+            <button id="Einfuegen" type="submit">Add Note</button>
+        </form>
+        <ul>
+            <li id="Liste" v-for="(note, index) in notes" :key="note.id">
+                <article>
+                    <h1>{{note.title}}</h1>
+                    <p>{{note.text}}</p>
+                    <button id="NotizLoeschen" @click="deleteNote(note.id)">X</button>
+                </article>
+            </li>
+        </ul>
+    </div>
+    <script src="VUE.js" ></script>
+</body>
+</html> 
